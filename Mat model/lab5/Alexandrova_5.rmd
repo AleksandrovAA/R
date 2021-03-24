@@ -109,20 +109,20 @@ ggpairs(DF.boston[, c(1, 4, 5)], ggplot2::aes(color = chas))
 ```
 
 
+
+```{r, echo = FALSE}
 #### Графики зависимости  crim ~ tax ,  crim ~ indus,  crim ~ black
-```{r}
+#plot(DF.boston$tax , DF.boston$crim,
+#     xlab = 'tax ', ylab = 'crim', pch = 21,
+#     col = rgb(0, 0, 1, alpha = 0.4), bg = rgb(0, 0, 1, alpha = 0.4))
 
-plot(DF.boston$tax , DF.boston$crim,
-     xlab = 'tax ', ylab = 'crim', pch = 21,
-     col = rgb(0, 0, 1, alpha = 0.4), bg = rgb(0, 0, 1, alpha = 0.4))
+#plot(DF.boston$indus, DF.boston$crim,
+#     xlab = 'indus', ylab = 'crim', pch = 21,
+#     col = rgb(0, 0, 1, alpha = 0.4), bg = rgb(0, 0, 1, alpha = 0.4))
 
-plot(DF.boston$indus, DF.boston$crim,
-     xlab = 'indus', ylab = 'crim', pch = 21,
-     col = rgb(0, 0, 1, alpha = 0.4), bg = rgb(0, 0, 1, alpha = 0.4))
-
-plot(DF.boston$black, DF.boston$crim,
-     xlab = 'black', ylab = 'crim', pch = 21,
-     col = rgb(0, 0, 1, alpha = 0.4), bg = rgb(0, 0, 1, alpha = 0.4))
+#plot(DF.boston$black, DF.boston$crim,
+ #    xlab = 'black', ylab = 'crim', pch = 21,
+ #    col = rgb(0, 0, 1, alpha = 0.4), bg = rgb(0, 0, 1, alpha = 0.4))
 
 ```
 
@@ -188,6 +188,8 @@ ggplot(
   )
 
 ```
+
+
 Построим модели для проверки точности со всеми объясняющими переменными.
 
 
@@ -197,7 +199,6 @@ $$crim=f(tax  + indus + black + chas)$$
 Линейная модель: 
 
 $$crim=β_0+β_1⋅weihgt +β_2 indus + β_3 black + β_4 chas$$
-
 
 
 ```{r, warning=FALSE}
@@ -228,7 +229,8 @@ MSE.lm.1_1
 
 Строим квадратичную модель: 
 
-$$crim = β_0 + β_1tax  + β_2 indus + β_3 black + β_4chas + β_5 tax ^2 + β_6 indus^2 + β_7 black^2 + β_8 chas^2$$
+$$crim = β_0+β_1tax+β_2 indus + β_3 black + β_4chas + β_5 tax ^2 + β_6 indus^2 + β_7 black^2 + β_8 chas^2$$
+
 
 
 ```{r}
@@ -259,7 +261,7 @@ MSE.lm.2_1
 
 $$crim=β_0+β_1tax +β_1tax  + β_2 indus + β_3 black+ β_5 indus^2 + 
 
-+β_6 black^2+ + β_4tax ^2  β_4tax ^2 + β_5 indus^2 + β_6 black^2+β_7⋅tax ^3+ β_8 indus^3 + β_9 black^3 + β_10 chas + β_11 chas^2 + β_12 chas^3$$
+β_6 black^2+ + β_4tax ^2  β_4tax ^2 + β_5 indus^2 + β_6 black^2+β_7⋅tax ^3+ β_8 indus^3 + β_9 black^3 + β_10 chas + β_11 chas^2 + β_12 chas^3$$
 
 
  Присоединить таблицу с данными: названия стоблцов будут доступны напрямую
@@ -407,8 +409,7 @@ MSE.lm.2
 ## Строим кубическую модель: 
 
 $$crim=β_0+β_1tax +β_1tax  + β_2 indus + β_3 black+ β_5 indus^2 + 
-
-+β_6 black^2+ + β_4tax ^2  β_4tax ^2 + β_5 indus^2 + β_6 black^2+β_7⋅tax ^3+ β_8 indus^3 + β_9 black^3$$
+β_6 black^2+ + β_4tax ^2  β_4tax ^2 + β_5 indus^2 + β_6 black^2+β_7⋅tax ^3+ β_8 indus^3 + β_9 black^3$$
 
 
  Присоединить таблицу с данными: названия стоблцов будут доступны напрямую
