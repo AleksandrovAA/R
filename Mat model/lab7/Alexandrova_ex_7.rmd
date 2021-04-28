@@ -276,11 +276,11 @@ round(preds$se.fit, 2)
 
 ```{r}
 # Сетка для графика
-plot(dis, I(indus > 16.5), xlim = dislims, type = 'n', ylim = c(-0.35, 1.5),
+plot(dis, I(indus > 16.5), xlim = dislims, type = 'n', ylim = c(-0.2, 1.2),
      ylab = 'P(Indus > 16.5 | dis)')
 
 # Фактические наблюдения показываем засечки
-points(jitter(dis), indus, cex = 0.5, pch = '|', col = 'darkgrey')
+points(jitter(dis), I((indus > 16.5) / 5), cex = 0.5, pch = '|', col = 'darkgrey')
 
 pfit <- preds$fit
 # Модель
